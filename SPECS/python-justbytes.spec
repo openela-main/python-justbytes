@@ -1,11 +1,11 @@
 %global srcname justbytes
 
 Name:           python-%{srcname}
-Version:        0.15
-Release:        6%{?dist}
+Version:        0.15.2
+Release:        1%{?dist}
 Summary:        Library for handling computation with address ranges in bytes
 
-License:        LGPLv2+
+License:        LGPL-2.1-or-later
 URL:            http://pypi.python.org/pypi/justbytes
 Source0:        https://pypi.io/packages/source/j/%{srcname}/%{srcname}-%{version}.tar.gz
 
@@ -22,6 +22,7 @@ Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{srcname}}
 BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
+BuildRequires:  python3-justbases
 
 %description -n python3-%{srcname} %{_description}
 
@@ -44,6 +45,10 @@ rm -rf justbytes.egg-info
 %{python3_sitelib}/justbytes-%{version}-*.egg-info/
 
 %changelog
+* Tue May 16 2023 Bryan Gurney <bgurney@redhat.com> - 0.15.2-1
+- Update to 0.15.2
+- Resolves: rhbz#2204503
+
 * Tue Aug 10 2021 Mohan Boddu <mboddu@redhat.com> - 0.15-6
 - Rebuilt for IMA sigs, glibc 2.34, aarch64 flags
   Related: rhbz#1991688
